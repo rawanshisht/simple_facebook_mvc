@@ -1,0 +1,37 @@
+﻿@model FacebookApp.Models.Post
+
+<div>
+    <div class="modal fade" id="editPostModal" tabindex="-1" role="dialog" aria-labelledby="editPostModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form asp-controller="Posts" asp-action="Edit" method="post">
+                    <div class="modal-header">
+                        Edit Post
+                    </div>
+                    <div class="modal-body">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group">
+                            <input asp-for="Content" class="form-control" />
+                            <span asp-validation-for="Content" class="text-danger"></span>
+                        </div>
+                        @*<div class="form-group">
+                            <label asp-for="PostingDate" class="control-label"></label>
+                            <input asp-for="PostingDate" class="form-control" />
+                            <span asp-validation-for="PostingDate" class="text-danger"></span>
+                        </div>*@
+                        <input type="hidden" asp-for="PostingDate" />
+                        <input type="hidden" asp-for="IsDeleted" />
+                        <input type="hidden" asp-for="UserId" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>

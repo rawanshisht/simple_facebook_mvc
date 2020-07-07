@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model FacebookApp.Models.UserCommentsOnPost
+
+<div>
+    <div class="modal fade" id="editCommentModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form asp-controller="Comments" asp-action="Edit" method="post">
+                    <div class="modal-body">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="CommentId" />
+                        <div class="form-group">
+                            <input asp-for="Content" class="form-control" />
+                            <span asp-validation-for="Content" class="text-danger"></span>
+                        </div>
+                        @*<div class="form-group">
+                                <label asp-for="PostingDate" class="control-label"></label>
+                                <input asp-for="PostingDate" class="form-control" />
+                                <span asp-validation-for="PostingDate" class="text-danger"></span>
+                            </div>*@
+                        <input type="hidden" asp-for="CommentDate" />
+                        <input type="hidden" asp-for="IsDeleted" />
+                        <input type="hidden" asp-for="UserId" />
+                        <input type="hidden" asp-for="PostId" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>
